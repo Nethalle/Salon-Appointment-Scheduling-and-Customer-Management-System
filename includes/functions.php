@@ -2,7 +2,7 @@
 // Shared helper functions (escaping, redirects, flash messages, CSRF, settings)
 
 /** Escape text for safe HTML output. */
-function e($value): string
+function e(mixed $value): string
 {
     return htmlspecialchars((string) $value, ENT_QUOTES, 'UTF-8');
 }
@@ -71,7 +71,12 @@ function csrf_field(): string
 function verify_csrf(): void
 {
     $sent = $_POST['csrf_token'] ?? '';
-    if (!hash_equals($_SESSION['csrf_token'] ?? '', $sent)) {
+
+    if (
+        $sent === ''
+        || empty($_SESSION['csrf_token'])
+        || !hash_equals($_SESSION['csrf_token'], $sent)
+    ) {
         http_response_code(400);
         exit('Invalid or expired form. Go back, refresh the page and try again.');
     }
