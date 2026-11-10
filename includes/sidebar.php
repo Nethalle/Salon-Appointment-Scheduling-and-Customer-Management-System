@@ -31,6 +31,7 @@ $activePage = $activePage ?? 'dashboard';
 
 $navigation = [
 
+    // ADMIN NAVIGATION
     'admin' => [
 
         [
@@ -91,6 +92,8 @@ $navigation = [
 
     ],
 
+
+    // STAFF NAVIGATION
     'staff' => [
 
         [
@@ -123,6 +126,8 @@ $navigation = [
 
     ],
 
+
+    // CUSTOMER NAVIGATION
     'customer' => [
 
         [
@@ -136,7 +141,7 @@ $navigation = [
             'key' => 'book',
             'label' => 'Book Appointment',
             'icon' => '＋',
-            'path' => '/customer/book.php'
+            'path' => '/customer/booking.php'
         ],
 
         [
@@ -150,7 +155,7 @@ $navigation = [
             'key' => 'review',
             'label' => 'My Reviews',
             'icon' => '☆',
-            'path' => '/customer/review.php'
+            'path' => '/customer/my_reviews.php'
         ],
 
     ],
@@ -232,6 +237,8 @@ $menuItems = $navigation[$role] ?? $navigation['customer'];
 
     <div class="sidebar-bottom">
 
+        <!-- USER INFORMATION -->
+
         <div class="sidebar-user">
 
             <div class="user-avatar sidebar-avatar">
@@ -250,8 +257,8 @@ $menuItems = $navigation[$role] ?? $navigation['customer'];
 
             </div>
 
-
         </div>
+
 
         <!-- LOGOUT BUTTON -->
 
@@ -280,7 +287,6 @@ $menuItems = $navigation[$role] ?? $navigation['customer'];
         <!-- FOOTER -->
 
         <div class="sidebar-footer">
-
 
             <span>Salon Studio</span>
 
