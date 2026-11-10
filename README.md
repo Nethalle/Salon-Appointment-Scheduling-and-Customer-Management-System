@@ -244,7 +244,9 @@ The daily appointment limit is not set in a file; the admin changes it in **Sett
 
 ## 12. Running the system
 
-Open `http://localhost/salon-system/public/`.
+Open `http://localhost/Salon-Appointment-Scheduling-and-Customer-Management-System/public/login.php`.
+
+The public landing page is not implemented yet; use the login URL above. If you rename the project folder inside `htdocs`, update `BASE_URL` in `config/config.php` to match.
 
 **Default accounts** (change the passwords after first login):
 
@@ -348,7 +350,7 @@ Manual test checklist:
 | Blank page or PHP errors | Check `C:\xampp\apache\logs\error.log`; make sure PHP is 8.0+ |
 | "Could not connect to database" | MySQL not running, or wrong values in `config/database.php` |
 | Login always fails | Re-import `seed.sql`; confirm the `users` table has the admin row |
-| Page not found | Check the folder is named `salon-system` inside `htdocs` |
+| Page not found | Check that the project folder is inside `htdocs` and that its URL prefix matches `BASE_URL` in `config/config.php`; open `public/login.php` directly |
 | Wrong times shown | Set the timezone in `config/config.php` (e.g. `Asia/Manila`) |
 
 ## 20. Design decisions
